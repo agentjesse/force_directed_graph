@@ -29,8 +29,8 @@ const nodesDiv = d3.select('.flagsHolder')//grab div on top of svg to hold <img>
 		.style('height', height+'px');
 
 //retrieve the data from somewhere, make error checks, then use it to finish setting up scales before making the graph
-// d3.json('resources/data.json', function(error,data){ //paths from js are from the page
-d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json', function(error,data){ //paths from js are from the page
+d3.json('resources/data.json', function(error,data){ //paths from script are from the displayed page
+// d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json', function(error,data){ //paths from js are from the page
 	if(error)console.log(error);//super important. display error if found!!
 	//format data:
 	const nodes = data.nodes;
