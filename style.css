@@ -1,0 +1,43 @@
+html{
+  font-size: 16px;
+}
+body {
+  /* always set a minimum width so ios will not cut out stuff */
+  min-width: 900px;
+  background-color: rgb(223, 228, 252);
+  margin: 0.1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.toolTip{
+  max-width: 250px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-weight: lighter;
+  font-size: 1rem;
+  background-color: rgb(232, 236, 255);
+  border-radius: 6px;
+  padding: 6px 11px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.493);
+}
+
+.chartBkg{
+  fill: rgb(255, 255, 255);
+}
+
+.chartTitle{
+  fill: rgb(20, 0, 110);
+  font: bold 1.75rem sans-serif;
+}
+
+.node{
+  position: absolute;
+  /* fill: tomato; */
+  /* background-color: aquamarine */
+}
+
+.link{
+  stroke: rgb(48, 196, 255);
+  /* stroke-width: 2px; */
+}
