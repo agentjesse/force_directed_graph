@@ -1,37 +1,32 @@
 //the group that will use these margins will not constrain elements in it
-const margin = {top:50, right:30, bottom:30, left: 30};
-const width  = 900 - margin.left - margin.right,
-			height = 800 - margin.top - margin.bottom;
+const width  = 900, height = 800;
 //popup
 const tooltip = d3.select('body').append('div')
 										.attr('class','toolTip')//set important styling
-										.style('position','absolute')
 										.style('opacity','0');//start off hidden
 
 // set dims, make bkg, titles of graph
 const svg = d3.select('.svgchart')
-		.attr('width',width + margin.left + margin.right)
-		.attr('height',height + margin.top + margin.bottom);
+		.attr('width', width)
+		.attr('height', height);
 //bkg
 svg.append('rect')
 		.attr('class','chartBkg')
-		.attr('width',width + margin.left + margin.right)
-		.attr('height',height + margin.top + margin.bottom)
+		.attr('width',width)
+		.attr('height',height)
 		.attr('rx','15')
 		.attr('ry','15');
-//main title and details
+//main title
 svg.append('text')
 		.attr('class', 'chartTitle')
 		.text('Force Directed Graph')
 		.attr('x', 15)
 		.attr('y', 30);
 
-const linksGroup = svg.append('g')//make a group within the svg to make use of margins from top left origin point of the group
-		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+const linksGroup = svg.append('g');//make a group within the svg to make use of margins from top left origin point of the group
 const nodesDiv = d3.select('.flagsHolder')//grab div on top of svg to hold <img> nodes
-		.style('position','absolute')//can't be static, must be removed from document flow, but remember it still is within it's containing block.
-		.style('width', width + margin.left + margin.right +'px')
-		.style('height', height + margin.top + margin.bottom +'px');
+		.style('width', width+'px')
+		.style('height', height+'px');
 
 //retrieve the data from somewhere, make error checks, then use it to finish setting up scales before making the graph
 // d3.json('resources/data.json', function(error,data){ //paths from js are from the page
@@ -63,12 +58,12 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
 				// console.log(d);
 				tooltip.html( `${d.country}` )
 				//DON'T FORGET TO OFFSET THE POPUP OR IT WILL INTERFERE, causing multiple event firing
-				.style('left', d3.event.pageX + 25 + 'px')//d3.event must be used to access the usual event object
+				.style('left', d3.event.pageX + 15 + 'px')//d3.event must be used to access the usual event object
 				.style('top', d3.event.pageY - 20 + 'px');
 				tooltip.transition()//smooth transition, from d3: https://github.com/d3/d3-3.x-api-reference/blob/master/Selections.md#transition
 				.duration(700)//ms
 				.style('opacity', 1);
-				d3.select(this).style('opacity','0.1');
+				d3.select(this).style('opacity','0.4');
 			})
 			.on('mouseout', function(d,i){
 				tooltip.style('opacity', 0)//reset opacity for next transition
@@ -78,8 +73,8 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
 			 
 	force.on('tick',function(){
 		// When this function executes, the force layout calculations have completed for the tick. various properties are now available on the nodes/links objects to use for positioning.
-		node.style('left', d => `${d.x + 23}px`) //offset a little due to coordinate mismatch
-				.style('top',  d => `${d.y + 40}px`);
+		node.style('left', d => `${d.x}px`)
+				.style('top',  d => `${d.y}px`);
 
 		link.attr('x1', function(d) { return d.source.x; })
 				.attr('y1', function(d) { return d.source.y; })

@@ -11,6 +11,7 @@ body {
 }
 
 .toolTip{
+  position: absolute;
   max-width: 250px;
   text-align: center;
   font-family: Helvetica, sans-serif;
@@ -29,6 +30,10 @@ body {
 .chartTitle{
   fill: rgb(20, 0, 110);
   font: bold 1.75rem sans-serif;
+}
+
+.flagsHolder {
+  position: absolute;
 }
 
 .node{

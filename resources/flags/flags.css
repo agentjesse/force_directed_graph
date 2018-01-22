@@ -6,7 +6,7 @@
     display: inline-block;
     width: 16px;
     height: 11px;
-    background: url("/resources/flags/flags.png") no-repeat;
+    background: url("flags.png") no-repeat;
 }
 
 
