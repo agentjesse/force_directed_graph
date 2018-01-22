@@ -44,5 +44,5 @@ body {
 
 .link{
   stroke: rgb(48, 196, 255);
-  /* stroke-width: 2px; */
+  stroke-width: 1;
 }
